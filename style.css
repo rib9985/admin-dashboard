@@ -18,6 +18,7 @@
 :root{
     --background-color: #282a36;
     --main-color: #44475a;
+    --main-color-darker: #2f3036;
     --foreground-color: #f8f8f2;
     --cyan: #8be9fd;
     --green: #50fa7b;
@@ -58,7 +59,7 @@ p{
 .container{
     display:grid;
 grid-template-columns: 1fr clamp(50%, 80%, 80%);
-grid-template-rows: 0.25fr 6fr 2fr;
+grid-template-rows: min-content 6fr 2fr;
 grid-template-areas: 
 'sidebar header'
 'sidebar project-area';
@@ -92,11 +93,12 @@ justify-self: center;
     grid-column: 2/2;
     grid-row: 1/1;
     grid-area: header;
-    padding: 20px;
+    padding: 1rem;
 
     display: grid;
+    grid-template-rows: 50% min-content;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+   
     grid-template-areas: 'search search notifications' 
     'profile-container profile-container buttons-container';
 
@@ -105,19 +107,53 @@ justify-self: center;
 .search{
     padding: 20px;
     font-size: 1rem;
-    width: 50%;
-    height: 50%;
     grid-area: search;
-}
-
-.profile-container{
-    padding: 30px;
-    grid-template-rows: repeat(2, 1fr);
-    font-size: 2rem;
-    grid-area: profile-container;
+    align-items: center;
 
     display: flex;
+    flex-direction: column;
+
+  
+}
+
+
+.search > form {
+    justify-content: center;
+    align-items: center;
+    display: flex;
     gap: 10px;
+
+}
+
+.search > form> input {
+    
+    border-radius: 20px;
+    padding: 5px;
+    outline: none;
+    text-decoration: none;
+    border-style: none;
+    background-color: var(--background-color);
+    font-family: var(--menu-font);
+    font-size: 1.5rem;
+    width: 700px;
+    height: 200%;
+}
+
+.search > form > label > span{
+    font-size: 2rem;
+}
+
+
+.profile-container{
+    padding: 10px;
+    padding-left: 40px;
+    grid-template-rows: repeat(2, 1fr);
+    font-size: 1.8rem;
+    grid-area: profile-container;
+    justify-content: left;
+
+    display: flex;
+    gap: 20px;
     align-items: center;
 
 
@@ -125,19 +161,21 @@ justify-self: center;
 
 
 .buttons-container{
-    padding: 20px;
-    font-size: 1rem;
+    padding: 10px;
+    font-size: 2rem;
     grid-area: buttons-container;
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 30px;
     align-items: center;
+    justify-content: center;
 }
 
 
 .notifications{
     font-size: 1rem;
     grid-area: notifications;
+    justify-content: center;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -149,28 +187,30 @@ justify-self: center;
 
 .buttons-container>button{
     font-family: var(--menu-font);
+    justify-content: center;
     font-weight: 900;
-    font-size: 1rem;
-    width: 5rem;
-    height: 2rem;
+    font-size: 1.3rem;
+    width: 20%;
+    height: 40%;
     background-color: var(--pink);
     border: none;
     color: var(--foreground-color);
-    padding: 10px;
-    text-align: center;
-    border-radius: 10px;
+    padding: 5px;
+    border-radius: 20px;
 }
 
-
+.buttons-container>button:hover{
+    font-family: var(--menu-font);
+}
 
 .avatar-small{
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
 }
 .avatar-large{
     width: minmax(2rem, 7rem);
-    height: 5rem;
+    height: 4rem;
     border-radius: 50%;
 }
 
@@ -181,7 +221,7 @@ justify-self: center;
 
 .project-area{
     padding: 1rem;
-    background-color: darkgoldenrod;
+    background-color: var(--main-color-darker);
     display: grid;
     grid-template-columns: 1fr clamp(5%, 33%, 50%);
     grid-template-rows: repeat(auto-fit, clamp(10%, 25%, 70%));
@@ -212,7 +252,7 @@ justify-self: center;
 
 
 .project-cards{
-    background-color: darkkhaki;
+    background-color: var(--purple);
     border-color: rgb(0, 0, 0);
     border: 1rem;
     padding:10px;
