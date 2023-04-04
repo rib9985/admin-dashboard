@@ -26,7 +26,7 @@
     --red: #ff5555
     -yellow: #f1fa8c;
 
-    --title-font: Bree Serif;
+    --title-font: 'Bree Serif';
     --content-font: Dongle;
     --menu-font: Signika Negative;
 
@@ -48,11 +48,9 @@ grid-template-areas:
     grid-area: sidebar;
     font-family: var(--content-font);
     font-size: 3rem;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 5rem 30rem 10rem;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
-    justify-items: center;
    
 }
 
@@ -117,8 +115,11 @@ grid-template-areas:
 }
 
 
-.logo-area{
+.sidebar>.logo-area{
+    font-family: var(--title-font);
     padding: 10px;
     grid-row: 1/1;
-font-size: 4rem;
+font-size: 3rem;
+justify-self: center;
 }
+
