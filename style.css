@@ -57,6 +57,13 @@ p{
 
 }
 
+ul{margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+}
+
 .container{
     display:grid;
 grid-template-columns: 1fr clamp(50%, 80%, 80%);
@@ -67,6 +74,7 @@ grid-template-areas:
 }
 
 .sidebar{
+
     background-color: var(--background-color);
     grid-column: 1/1;
     grid-row: 1/3;
@@ -78,6 +86,10 @@ grid-template-areas:
     flex-direction: column;
     gap: 10px;
    
+}
+.nav,.settings>ul{
+    margin-inline-start: 2rem;
+
 }
 
 .sidebar>.logo-area{
@@ -98,7 +110,7 @@ justify-self: center;
 
     display: grid;
     grid-template-rows: 50% min-content;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr min-content;
    
     grid-template-areas: 'search search notifications' 
     'profile-container profile-container buttons-container';
@@ -137,7 +149,7 @@ justify-self: center;
     font-family: var(--menu-font);
     font-size: 1.5rem;
     width: 700px;
-    height: 200%;
+    height: 150%;
 }
 
 .search > form > label > span{
@@ -148,6 +160,22 @@ justify-self: center;
     color:var(--green);
 }
 
+.search-button{
+    border-style: none;
+    background: none;
+    font-size: 1rem;
+    
+}
+
+.search-button:hover{
+    color:var(--green);
+    
+}
+
+.search-button:active{
+    color:var(--orange);
+    transform: scale(90%);
+}
 
 .profile-container{
     padding: 10px;
@@ -195,8 +223,8 @@ justify-self: center;
     justify-content: center;
     font-weight: 900;
     font-size: 1.3rem;
-    width: 20%;
-    height: 40%;
+    width: 6rem;
+    height: 60%;
     background-color: var(--pink);
     border: none;
     color: var(--foreground-color);
@@ -277,10 +305,10 @@ justify-self: center;
     gap: 10px;
 }
 
-.project-cards:hover{
+.project-cards:hover, .announce-container:hover, .trending-container:hover{
     background-color: #a768ff;
     border-left-color: #6cff85;
-    transform: scale(110%)
+    transform: scale(102%)
 }
 
 
@@ -318,10 +346,53 @@ justify-self: center;
 
 
 
-.other{
-       display: grid;
-        gap: 2px;
-        grid-template-columns: 30% 20%;
-        grid-template-rows: 25% 15%;
-        justify-items: left;
+.announcement-area, .trending-area{
+display: flex;
+flex-direction: column;
+gap: 10px;
+margin: 0;
+justify-content: center;
+}
+
+.announce-container>ul{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0;
+    justify-content: center;
+}
+
+.announce-container>ul>li{
+    border: 0px;
+    padding: 10px;
+    border-bottom: 1px;
+  border-bottom-color: var(--foreground-color);
+  border-style: solid;
+}
+
+
+.trending-users{
+    display:grid;
+    gap: 1rem;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: 20% 20%;
+    grid-template-areas: 'avatar username'
+    'avatar project-name';
+}
+
+.trending-users>img{
+    grid-area: avatar
+}
+
+.trending-users>h3{
+    grid-area: username;
+}
+
+
+.trending-users>.card-content{
+    grid-area: project-name;
+}
+
+.trending-users:hover, .announce-container>ul>li:hover{
+    transform: scale(101%);
 }
