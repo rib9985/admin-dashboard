@@ -8,5 +8,7 @@ Technologies used: <h3> Technologies used: </h3>
 	<code><img height="50" src="https://user-images.githubusercontent.com/25181517/183898674-75a4a1b1-f960-4ea9-abcb-637170a00a75.png" alt="CSS" title="CSS" /></code>
 </div>
 <br>
-<h3>Showcase:</h3>
-![Showcase-image](/images/admin-dashboard-screenshot.png "Admin Dashboard Showcase")
+<h3>Showcase:</h3>\
+<br>
+
+![Showcase-image](images/admin-dashboard-screenshot.png)
