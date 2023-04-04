@@ -9,4 +9,4 @@ Technologies used: <h3> Technologies used: </h3>
 </div>
 <br>
 <h3>Showcase:</h3>
-![](./images/admin-dashboard-screenshot.png)
+![Showcase-image](/images/admin-dashboard-screenshot.png "Admin Dashboard Showcase")
